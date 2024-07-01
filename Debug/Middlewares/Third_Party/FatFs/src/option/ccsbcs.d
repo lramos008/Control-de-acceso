@@ -1,9 +1,9 @@
-FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
- ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
- ../Middlewares/Third_Party/FatFs/src/diskio.h \
- ../Middlewares/Third_Party/FatFs/src/integer.h \
- ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/ffconf.h \
- ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+Middlewares/Third_Party/FatFs/src/option/ccsbcs.o: \
+ ../Middlewares/Third_Party/FatFs/src/option/ccsbcs.c \
+ ../Middlewares/Third_Party/FatFs/src/option/../ff.h \
+ ../Middlewares/Third_Party/FatFs/src/option/../integer.h \
+ ../FATFS/Target/ffconf.h ../Core/Inc/main.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -50,12 +50,9 @@ FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
-../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
-../Middlewares/Third_Party/FatFs/src/diskio.h:
-../Middlewares/Third_Party/FatFs/src/integer.h:
-../Middlewares/Third_Party/FatFs/src/ff.h:
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+../Middlewares/Third_Party/FatFs/src/option/../ff.h:
+../Middlewares/Third_Party/FatFs/src/option/../integer.h:
 ../FATFS/Target/ffconf.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -106,4 +103,3 @@ FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:

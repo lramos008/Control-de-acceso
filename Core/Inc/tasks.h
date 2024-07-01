@@ -3,6 +3,7 @@
 
 #include "keypad.h"
 #include "screen.h"
+#include "sd.h"
 /*Defino prototipos de las tareas*/
 void VoiceProcessing(void *pvParameters);
 void KeypadScanning (void *pvParameters);

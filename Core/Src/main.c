@@ -60,7 +60,7 @@ static void MX_I2C1_Init(void);
 static void MX_SPI3_Init(void);
 
 /* USER CODE BEGIN PFP */
-void blockingDelay(uint32_t ms);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -252,7 +252,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -368,13 +368,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void blockingDelay(uint32_t delay){
-	TickType_t delayTicks = pdMS_TO_TICKS(delay);
-	TickType_t startTick = xTaskGetTickCount();
-	while ((xTaskGetTickCount() - startTick) < delayTicks){
 
-	}
-}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -384,7 +378,16 @@ void blockingDelay(uint32_t delay){
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-
+void StartDefaultTask(void const * argument)
+{
+  /* USER CODE BEGIN 5 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END 5 */
+}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

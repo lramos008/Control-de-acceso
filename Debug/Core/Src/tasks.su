@@ -2,5 +2,5 @@
 ../Core/Src/tasks.c:13:6:KeypadScanning	24	static
 ../Core/Src/tasks.c:106:6:ScreenManager	32	static
 ../Core/Src/tasks.c:152:6:LockControl	16	static
-../Core/Src/tasks.c:155:6:SavingOnSD	16	static
-../Core/Src/tasks.c:158:8:IdleTask	16	static
+../Core/Src/tasks.c:156:6:sdHandler	16	static
+../Core/Src/tasks.c:163:6:IdleTask	16	static

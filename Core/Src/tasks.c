@@ -149,13 +149,18 @@ void ScreenManager  (void *pvParameters){
 		}
 	}
 }
-void LockControl    (void *pvParameters){
+void LockControl(void *pvParameters){
 
 }
-void SavingOnSD     (void *pvParameters){
 
+void sdHandler(void *pvParameters){
+	/*Compruebo si existe el archivo de ingreso de personas*/
+	Mount_SD("/");
+	if(fileIsOnSD("registro_personas.csv" == FR_NO_FILE)){
+		Create_File("registro_personas.csv");
+	}
 }
-  void IdleTask       (void *pvParameters){
+void IdleTask(void *pvParameters){
 	while(1){
 
 	}
