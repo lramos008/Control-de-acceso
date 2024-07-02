@@ -51,7 +51,7 @@ FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
+ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
 ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
 ../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../Middlewares/Third_Party/FatFs/src/integer.h:
@@ -106,4 +106,4 @@ FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:
+C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:

@@ -50,6 +50,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 QueueHandle_t uiQueue;
+QueueHandle_t sequenceQueue;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,7 +119,8 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  uiQueue = xQueueCreate(1, sizeof(eventoSecuencia));
+  uiQueue = xQueueCreate(1, sizeof(eventoDisplay));
+  sequenceQueue = xQueueCreate(6, sizeof(char));
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */

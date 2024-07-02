@@ -1,7 +1,7 @@
 #include "keypad.h"
 /*Funciones relacionadas al keypad*/
-eventoSecuencia HandleInput(FSM *FSM1){
-	eventoSecuencia eventoEnviado;
+eventoDisplay HandleInput(FSM *FSM1){
+	eventoDisplay eventoEnviado;
 	uint8_t KeyPressed;
 	if((xTaskGetTickCount() - FSM1->StartTime) < pdMS_TO_TICKS(KEYPAD_TIMEOUT)){		//Mientras no se supere el timeout puedo ingresar digito
 		KeyPressed = GetKey();

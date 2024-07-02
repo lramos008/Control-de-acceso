@@ -13,7 +13,7 @@
 #include "stdio.h"
 #include "fatfs_sd.h"
 
-
+void Send_Uart (char *string);
 /* mounts the sd card*/
 void Mount_SD (const TCHAR* path);
 
@@ -55,7 +55,6 @@ void Check_SD_Space (void);
  */
 FRESULT Update_File (char *name, char *data);
 
-FRESULT fileIsOnSD(char *name);
 
 
 

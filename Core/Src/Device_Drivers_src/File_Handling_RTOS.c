@@ -15,7 +15,6 @@ extern UART_HandleTypeDef huart2;
 
 
 /* =============================>>>>>>>> NO CHANGES AFTER THIS LINE =====================================>>>>>>> */
-
 FATFS fs;  // file system
 FIL fil; // File
 FILINFO fno;
@@ -436,55 +435,49 @@ void Check_SD_Space (void)
     vPortFree(buf);
 }
 
-FRESULT SearchIDInFile(char *name, char *ID, char *UserInfo){
-	/*Esta funcion busca el ID en el archivo name*/
-	int EOF_Flag;
-	uint8_t SearchState = FILE_NOT_LOCATED;
-	/* Abro el archivo */
-	fresult = f_open(&fil, name, FA_READ);
-	if (fresult != FR_OK){
-		/*Esto se implementa con fines de debugging*/
-		char *buf = pvPortMalloc(100*sizeof(char));
-		sprintf (buf, "ERROR!!! No. %d in opening file *%s*\n\n", fresult, name);
-		Send_Uart(buf);
-		vPortFree(buf);
-		return fresult;
-	}
-	EOF_Flag = (int) f_gets(UserInfo, 60, &fil);		//Descarto el header de la busqueda
-	while(EOF_Flag != 0){
-		/*Se busca el ID linea por linea hasta llegar al final del archivo*/
-		EOF_Flag = (int) f_gets(UserInfo, 60, &fil);
-		for(uint8_t i = 0; i < 6; i++){
-			/*Los primeros 6 caracteres de cada linea se asignan al ID del usuario*/
-			if(UserInfo[i] == ID[i]){
-				SearchState = FILE_LOCATED;
-			}
-			else{
-				SearchState = FILE_NOT_LOCATED;
-				i = 6;
-			}
-		}
-		if(SearchState == FILE_LOCATED) EOF_Flag = 0;
-	}
-	if(SearchState == FILE_LOCATED){
-		Send_Uart(UserInfo);
-	}
-	else{
-		*UserInfo = 0;									//Si el primer elemento es cero no se encontro ID
-		char *buf = pvPortMalloc(50 * sizeof(char));
-		sprintf (buf, "ID not found\n");
-		Send_Uart(buf);
-		vPortFree(buf);
-	}
-	/* Close file */
-	fresult = f_close(&fil);
-	return fresult;
-}
+//FRESULT SearchIDInFile(char *name, char *ID, char *UserInfo){
+//	/*Esta funcion busca el ID en el archivo name*/
+//	int EOF_Flag;
+//	uint8_t SearchState = FILE_NOT_LOCATED;
+//	/* Abro el archivo */
+//	fresult = f_open(&fil, name, FA_READ);
+//	if (fresult != FR_OK){
+//		/*Esto se implementa con fines de debugging*/
+//		char *buf = pvPortMalloc(100*sizeof(char));
+//		sprintf (buf, "ERROR!!! No. %d in opening file *%s*\n\n", fresult, name);
+//		Send_Uart(buf);
+//		vPortFree(buf);
+//		return fresult;
+//	}
+//	EOF_Flag = (int) f_gets(UserInfo, 60, &fil);		//Descarto el header de la busqueda
+//	while(EOF_Flag != 0){
+//		/*Se busca el ID linea por linea hasta llegar al final del archivo*/
+//		EOF_Flag = (int) f_gets(UserInfo, 60, &fil);
+//		for(uint8_t i = 0; i < 6; i++){
+//			/*Los primeros 6 caracteres de cada linea se asignan al ID del usuario*/
+//			if(UserInfo[i] == ID[i]){
+//				SearchState = FILE_LOCATED;
+//			}
+//			else{
+//				SearchState = FILE_NOT_LOCATED;
+//				i = 6;
+//			}
+//		}
+//		if(SearchState == FILE_LOCATED) EOF_Flag = 0;
+//	}
+//	if(SearchState == FILE_LOCATED){
+//		Send_Uart(UserInfo);
+//	}
+//	else{
+//		*UserInfo = 0;									//Si el primer elemento es cero no se encontro ID
+//		char *buf = pvPortMalloc(50 * sizeof(char));
+//		sprintf (buf, "ID not found\n");
+//		Send_Uart(buf);
+//		vPortFree(buf);
+//	}
+//	/* Close file */
+//	fresult = f_close(&fil);
+//	return fresult;
+//}
 
-FRESULT fileIsOnSD(char *name){
-	/*Esta funcion es un wrapper nada mas*/
-	/**** check whether the file exists or not ****/
-		fresult = f_stat (name, &fno);					//Compruebo si existe el archivo
-		return fresult;
-}
 

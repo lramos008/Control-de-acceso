@@ -33,7 +33,7 @@ Core/Src/Device_Drivers_src/fatfs_sd.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/integer.h \
- C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
+ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -67,4 +67,4 @@ Core/Src/Device_Drivers_src/fatfs_sd.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../Middlewares/Third_Party/FatFs/src/integer.h:
-C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:
+C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:

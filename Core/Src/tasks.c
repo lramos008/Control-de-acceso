@@ -5,13 +5,14 @@
 
 FSM StateMachine;
 extern QueueHandle_t uiQueue;
+extern QueueHandle_t sequenceQueue;
 
 void VoiceProcessing(void *pvParameters){
 
 }
 
 void KeypadScanning (void *pvParameters){
-	eventoSecuencia eventoEnviado;
+	eventoDisplay eventoEnviado;
 	uint8_t keyPressed;
 	FSM *FSM1 = &StateMachine;
 	FSM1->CurrentState = ESPERA_DIGITO_1;
@@ -104,7 +105,7 @@ void KeypadScanning (void *pvParameters){
 }
 
 void ScreenManager  (void *pvParameters){
-	eventoSecuencia eventoRecibido = PANTALLA_INGRESE_CLAVE;
+	eventoDisplay eventoRecibido = PANTALLA_INGRESE_CLAVE;
 	uint8_t x = 10;														//x e y definen coordenadas en pantalla
 	uint8_t y = 26;
 	displayInit();
@@ -153,11 +154,28 @@ void LockControl(void *pvParameters){
 
 }
 
+
 void sdHandler(void *pvParameters){
-	/*Compruebo si existe el archivo de ingreso de personas*/
-	Mount_SD("/");
-	if(fileIsOnSD("registro_personas.csv" == FR_NO_FILE)){
-		Create_File("registro_personas.csv");
+	/*Esta tarea se encarga del manejo de la memoria SD*/
+	eventoDisplay eventoRecibido;
+	char *accessSequence[SEQUENCE_LEN];
+	/*Realizo verificacion de archivos inicial*/
+	verifyDatabase("database_personas.csv");
+	verifyDatabaseFFT("database_fft.csv");
+	verifyAccessRegister("registro_accesos.csv");
+	while(1){
+		/*Espero secuencia de 6 digitos*/
+		for(uint8_t i = 0; i < SEQUENCE_LEN; i++){
+			xQueueReceive(sequenceQueue, accessSequence, portMAX_DELAY);
+		}
+		/*Verifico que la secuencia este en la base de datos de personas*/
+		if(1/*No esta en la base de datos*/){
+
+		}
+		else{
+
+		}
+
 	}
 }
 void IdleTask(void *pvParameters){

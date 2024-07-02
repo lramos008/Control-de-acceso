@@ -37,7 +37,7 @@ typedef struct{
 /*Agrego prototipos de funciones*/
 uint8_t GetKey(void);
 uint8_t AreVectorsEqual(uint8_t *Vector1, uint8_t *Vector2, uint8_t size);
-eventoSecuencia HandleInput(FSM *FSM1);
+eventoDisplay HandleInput(FSM *FSM1);
 void ClearString(char *str);
 void ClearBuffer(uint8_t *Buffer, uint8_t size);
 #endif /* KEYPAD_DRIVER_H */

@@ -26,6 +26,6 @@ typedef enum{
 	PANTALLA_ACCESO_DENEGADO,
 	PANTALLA_TIMEOUT,
 	PANTALLA_SECUENCIA_INCOMPLETA
-}eventoSecuencia;
+}eventoDisplay;
 
 #endif /* SCREEN_DRIVER_H */

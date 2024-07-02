@@ -1,1 +1,2 @@
-../Core/Src/Device_Drivers_src/sd.c:3:6:checkUserOnSD	2
+../Core/Src/Device_Drivers_src/sd.c:10:11:verifyAccessRegister	4
+../Core/Src/Device_Drivers_src/sd.c:39:11:verifyDatabase	5

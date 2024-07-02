@@ -1,6 +1,6 @@
-../Core/Src/tasks.c:9:6:VoiceProcessing	1
-../Core/Src/tasks.c:13:6:KeypadScanning	18
-../Core/Src/tasks.c:106:6:ScreenManager	7
-../Core/Src/tasks.c:152:6:LockControl	1
-../Core/Src/tasks.c:156:6:sdHandler	3
-../Core/Src/tasks.c:163:6:IdleTask	1
+../Core/Src/tasks.c:10:6:VoiceProcessing	1
+../Core/Src/tasks.c:14:6:KeypadScanning	18
+../Core/Src/tasks.c:107:6:ScreenManager	7
+../Core/Src/tasks.c:153:6:LockControl	1
+../Core/Src/tasks.c:158:6:sdHandler	2
+../Core/Src/tasks.c:180:6:IdleTask	1

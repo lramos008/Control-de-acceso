@@ -1,6 +1,6 @@
 Core/Src/Device_Drivers_src/File_Handling_RTOS.o: \
  ../Core/Src/Device_Drivers_src/File_Handling_RTOS.c \
- C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h \
+ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h \
  ../FATFS/App/fatfs.h ../Middlewares/Third_Party/FatFs/src/ff.h \
  ../Middlewares/Third_Party/FatFs/src/integer.h ../FATFS/Target/ffconf.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
@@ -54,8 +54,8 @@ Core/Src/Device_Drivers_src/File_Handling_RTOS.o: \
  ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/user_diskio.h \
- C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
-C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h:
+ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
+C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h:
 ../FATFS/App/fatfs.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
 ../Middlewares/Third_Party/FatFs/src/integer.h:
@@ -113,4 +113,4 @@ C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/
 ../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
 ../FATFS/Target/user_diskio.h:
-C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:
+C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:

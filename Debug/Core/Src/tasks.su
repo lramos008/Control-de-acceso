@@ -1,6 +1,6 @@
-../Core/Src/tasks.c:9:6:VoiceProcessing	16	static
-../Core/Src/tasks.c:13:6:KeypadScanning	24	static
-../Core/Src/tasks.c:106:6:ScreenManager	32	static
-../Core/Src/tasks.c:152:6:LockControl	16	static
-../Core/Src/tasks.c:156:6:sdHandler	16	static
-../Core/Src/tasks.c:163:6:IdleTask	16	static
+../Core/Src/tasks.c:10:6:VoiceProcessing	16	static
+../Core/Src/tasks.c:14:6:KeypadScanning	24	static
+../Core/Src/tasks.c:107:6:ScreenManager	32	static
+../Core/Src/tasks.c:153:6:LockControl	16	static
+../Core/Src/tasks.c:158:6:sdHandler	48	static
+../Core/Src/tasks.c:180:6:IdleTask	16	static
