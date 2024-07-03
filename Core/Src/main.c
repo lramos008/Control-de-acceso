@@ -51,6 +51,7 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 QueueHandle_t uiQueue;
 QueueHandle_t sequenceQueue;
+QueueHandle_t lockQueue;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -121,6 +122,7 @@ int main(void)
   /* USER CODE BEGIN RTOS_QUEUES */
   uiQueue = xQueueCreate(1, sizeof(eventoDisplay));
   sequenceQueue = xQueueCreate(6, sizeof(char));
+  lockQueue = xQueueCreate(1, sizeof(lockState));
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -128,7 +130,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   xTaskCreate(ScreenManager, "Tarea 05", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 4, NULL);
-  //xTaskCreate(LockControl, "Tarea 04", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL);
+  xTaskCreate(LockControl, "Tarea 04", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL);
   //xTaskCreate(VoiceProcessing, "Tarea 03", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
   //xTaskCreate(SavingOnSD, "Tarea 02", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
   xTaskCreate(KeypadScanning, "Tarea 01", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);

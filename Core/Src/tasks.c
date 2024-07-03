@@ -6,6 +6,7 @@
 FSM StateMachine;
 extern QueueHandle_t uiQueue;
 extern QueueHandle_t sequenceQueue;
+extern QueueHandle_t lockQueue;
 
 void VoiceProcessing(void *pvParameters){
 
@@ -140,7 +141,7 @@ void ScreenManager  (void *pvParameters){
 			displayAccessState();
 			HAL_Delay(3000);
 			break;
-		case PANTALLA_ACCESO_DENEGADO:
+		case PANTALLA_USUARIO_INEXISTENTE:
 			break;
 		case PANTALLA_IDLE:
 			/*No hacer nada*/
@@ -150,34 +151,50 @@ void ScreenManager  (void *pvParameters){
 		}
 	}
 }
-void LockControl(void *pvParameters){
-
-}
-
 
 void sdHandler(void *pvParameters){
-	/*Esta tarea se encarga del manejo de la memoria SD*/
-	eventoDisplay eventoRecibido;
-	char *accessSequence[SEQUENCE_LEN];
+	/***Esta tarea se encarga del manejo de la memoria SD***/
+	eventoDisplay eventoEnviado;
+	lockState magneticLockState= LOCK_ON;
+	char *accessSequence = pvPortMalloc(7 * sizeof(char));
+	char *userName;
+
 	/*Realizo verificacion de archivos inicial*/
-	verifyDatabase("database_personas.csv");
-	verifyDatabaseFFT("database_fft.csv");
-	verifyAccessRegister("registro_accesos.csv");
+	verifyDatabase("database_personas.txt");
+	verifyDatabaseFFT("database_fft.txt");
+	verifyAccessRegister("registro_accesos.txt");
 	while(1){
 		/*Espero secuencia de 6 digitos*/
 		for(uint8_t i = 0; i < SEQUENCE_LEN; i++){
 			xQueueReceive(sequenceQueue, accessSequence, portMAX_DELAY);
 		}
 		/*Verifico que la secuencia este en la base de datos de personas*/
-		if(1/*No esta en la base de datos*/){
-
+		userName = searchUserOnDatabase(accessSequence, "database_personas.txt");
+		if(userName == USER_ERROR){
+			eventoEnviado = PANTALLA_USUARIO_INEXISTENTE;
 		}
 		else{
-
+			magneticLockState = LOCK_OFF;
+			eventoEnviado = PANTALLA_ACCESO_CONCEDIDO;
+			xQueueSend(uiQueue, &eventoEnviado, portMAX_DELAY);						//Envio indicaciones al display
+			xQueueSend(lockQueue, &magneticLockState, portMAX_DELAY);				//Envio indicaciones a la cerradura
 		}
-
+	vPortFree(userName);															//Libero memoria utilizada
 	}
 }
+
+void LockControl(void *pvParameters){
+	lockState magneticLockState = LOCK_ON;
+	while(1){
+		xQueueReceive(lockQueue, &magneticLockState, portMAX_DELAY);
+		if(magneticLockState == LOCK_OFF){
+			openLock();
+			/*Esperar un tiempo*/
+			closeLock();
+		}
+	}
+}
+
 void IdleTask(void *pvParameters){
 	while(1){
 

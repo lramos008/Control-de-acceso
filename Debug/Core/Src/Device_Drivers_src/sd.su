@@ -1,2 +1,3 @@
 ../Core/Src/Device_Drivers_src/sd.c:10:11:verifyAccessRegister	24	static
 ../Core/Src/Device_Drivers_src/sd.c:39:11:verifyDatabase	24	static
+../Core/Src/Device_Drivers_src/sd.c:69:7:searchUserOnDatabase	32	static
