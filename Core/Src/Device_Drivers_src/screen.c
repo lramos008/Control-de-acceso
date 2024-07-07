@@ -60,6 +60,23 @@ void displayAccessState(void){
 	ssd1306_UpdateScreen();
 }
 
+void displayNonExistentUserMsg(void){
+	uint8_t x = 20;
+	uint8_t y = 0;
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(x, y);
+	ssd1306_WriteString("Usuario", Font_11x18, White);
+	x = 20;
+	y += 18;
+	ssd1306_SetCursor(x, y);
+	ssd1306_WriteString("no", Font_11x18, White);
+	x = 20;
+	y += 18;
+	ssd1306_SetCursor(x, y);
+	ssd1306_WriteString("existente", Font_11x18, White);
+	ssd1306_UpdateScreen();
+}
+
 
 
 

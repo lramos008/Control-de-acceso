@@ -1,6 +1,6 @@
 Core/Src/Device_Drivers_src/sd.o: ../Core/Src/Device_Drivers_src/sd.c \
- C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/sd.h \
- C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h \
+ C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/sd.h \
+ C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h \
  ../FATFS/App/fatfs.h ../Middlewares/Third_Party/FatFs/src/ff.h \
  ../Middlewares/Third_Party/FatFs/src/integer.h ../FATFS/Target/ffconf.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
@@ -30,6 +30,8 @@ Core/Src/Device_Drivers_src/sd.o: ../Core/Src/Device_Drivers_src/sd.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
@@ -54,9 +56,9 @@ Core/Src/Device_Drivers_src/sd.o: ../Core/Src/Device_Drivers_src/sd.c \
  ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/user_diskio.h \
- C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
-C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/sd.h:
-C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h:
+ C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h
+C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/sd.h:
+C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/File_Handling_RTOS.h:
 ../FATFS/App/fatfs.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
 ../Middlewares/Third_Party/FatFs/src/integer.h:
@@ -89,6 +91,8 @@ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drive
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
@@ -114,4 +118,4 @@ C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drive
 ../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
 ../FATFS/Target/user_diskio.h:
-C:/Users/dramos/Documents/Control_Acceso/Control-de-acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:
+C:/Users/Juli-Leo/Documents/Facultad/stm32\ workspace/EDIII_Control_Acceso/Core/Inc/Device_Drivers_inc/fatfs_sd.h:

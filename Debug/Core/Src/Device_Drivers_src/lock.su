@@ -1,2 +1,2 @@
-../Core/Src/Device_Drivers_src/lock.c:3:6:openLock	4	static
-../Core/Src/Device_Drivers_src/lock.c:7:6:closeLock	4	static
+../Core/Src/Device_Drivers_src/lock.c:3:6:openLock	8	static
+../Core/Src/Device_Drivers_src/lock.c:9:6:closeLock	8	static

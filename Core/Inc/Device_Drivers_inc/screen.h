@@ -15,6 +15,7 @@ void displayInsertKeyMsg(void);
 void displayTimeoutMsg(void);
 void displayIncompleteMsg(void);
 void displayAccessState(void);
+void displayNonExistentUserMsg(void);
 
 /*Agrego eventos de la pantalla al ingresar secuencia*/
 typedef enum{

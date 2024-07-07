@@ -67,7 +67,9 @@ void KeypadScanning (void *pvParameters){
 					}
 					else{
 						if(keyPressed == ENTER){
-							eventoEnviado = PANTALLA_ACCESO_CONCEDIDO;
+							for(uint8_t i = 0; i < SEQUENCE_LEN; i++){
+								xQueueSend(sequenceQueue, &(FSM1->Buffer[i]), portMAX_DELAY);
+							}
 							ClearBuffer(FSM1->Buffer, 6);
 							FSM1->CurrentState = ESPERA_DIGITO_1;
 						}
@@ -106,6 +108,7 @@ void KeypadScanning (void *pvParameters){
 }
 
 void ScreenManager  (void *pvParameters){
+	lockState magneticLockState;
 	eventoDisplay eventoRecibido = PANTALLA_INGRESE_CLAVE;
 	uint8_t x = 10;														//x e y definen coordenadas en pantalla
 	uint8_t y = 26;
@@ -139,9 +142,13 @@ void ScreenManager  (void *pvParameters){
 			break;
 		case PANTALLA_ACCESO_CONCEDIDO:
 			displayAccessState();
+			magneticLockState = LOCK_ON;
 			HAL_Delay(3000);
+			xQueueSend(lockQueue, &magneticLockState, portMAX_DELAY);
 			break;
 		case PANTALLA_USUARIO_INEXISTENTE:
+			displayNonExistentUserMsg();
+			HAL_Delay(3000);
 			break;
 		case PANTALLA_IDLE:
 			/*No hacer nada*/
@@ -156,41 +163,46 @@ void sdHandler(void *pvParameters){
 	/***Esta tarea se encarga del manejo de la memoria SD***/
 	eventoDisplay eventoEnviado;
 	lockState magneticLockState= LOCK_ON;
-	char *accessSequence = pvPortMalloc(7 * sizeof(char));
+	char accessSequence[SEQUENCE_LEN + 1];
+	accessSequence[6] = 0;
 	char *userName;
-
 	/*Realizo verificacion de archivos inicial*/
 	verifyDatabase("database_personas.txt");
-	verifyDatabaseFFT("database_fft.txt");
+	//verifyDatabaseFFT("database_fft.txt");
 	verifyAccessRegister("registro_accesos.txt");
 	while(1){
 		/*Espero secuencia de 6 digitos*/
 		for(uint8_t i = 0; i < SEQUENCE_LEN; i++){
-			xQueueReceive(sequenceQueue, accessSequence, portMAX_DELAY);
+			xQueueReceive(sequenceQueue, &accessSequence[i], portMAX_DELAY);
 		}
 		/*Verifico que la secuencia este en la base de datos de personas*/
 		userName = searchUserOnDatabase(accessSequence, "database_personas.txt");
 		if(userName == USER_ERROR){
+			userName = pvPortMalloc(25 * sizeof(char));
+			snprintf(userName, 25, "Usuario desconocido");
+			recordOnRegister("registro_accesos.txt", userName, accessSequence);
 			eventoEnviado = PANTALLA_USUARIO_INEXISTENTE;
+			xQueueSend(uiQueue, &eventoEnviado, portMAX_DELAY);
 		}
 		else{
+			recordOnRegister("registro_accesos.txt", userName, accessSequence);
 			magneticLockState = LOCK_OFF;
 			eventoEnviado = PANTALLA_ACCESO_CONCEDIDO;
-			xQueueSend(uiQueue, &eventoEnviado, portMAX_DELAY);						//Envio indicaciones al display
 			xQueueSend(lockQueue, &magneticLockState, portMAX_DELAY);				//Envio indicaciones a la cerradura
-		}
-	vPortFree(userName);															//Libero memoria utilizada
+			xQueueSend(uiQueue, &eventoEnviado, portMAX_DELAY);						//Envio indicaciones al display
+		}															//Libero memoria utilizada
 	}
 }
 
 void LockControl(void *pvParameters){
 	lockState magneticLockState = LOCK_ON;
+	closeLock();
 	while(1){
 		xQueueReceive(lockQueue, &magneticLockState, portMAX_DELAY);
 		if(magneticLockState == LOCK_OFF){
 			openLock();
-			/*Esperar un tiempo*/
-			closeLock();
+			xQueueReceive(lockQueue, &magneticLockState, portMAX_DELAY);			//Para sincronizar con la pantalla
+			if(magneticLockState == LOCK_ON) closeLock();
 		}
 	}
 }

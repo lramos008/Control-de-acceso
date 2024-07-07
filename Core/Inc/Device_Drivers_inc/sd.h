@@ -21,6 +21,8 @@ fileState fileIsOnSD(char *name);
 fileState verifyDatabase(char *name);
 char *searchUserOnDatabase(char *userSequence, char *databaseName);
 fileState verifyAccessRegister(char *name);
+void recordOnRegister(char *regName, char *userName, char *accessSequence);
+char *getTimeFromRTC(void);
 
 
 #endif /* SD_DRIVER_H */
